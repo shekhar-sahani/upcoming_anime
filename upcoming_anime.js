@@ -301,9 +301,9 @@ const showInnerHtml = jsonData.map((item, index) => {
        
      </ul>
    </div>
-   <div  class="description">
+   <div style="min-height: 169px;" class="description">
      <h1 >${item.title} </h1>
-     <h2>Lorem ipsum dolor sit amet</h2>
+     <h2>${item.fall} </h2>
      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
      
    </div>
