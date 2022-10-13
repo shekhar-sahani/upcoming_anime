@@ -269,26 +269,42 @@ const myContent = document.getElementById('output')
            <li><a href="#">JavaScript</a></li>
          </ul>
        </li> */}
-const showInnerHtml = jsonData.map((item, index) => {
-   return `<div style="margin-bottom:30px;" class="${index % 2 === 0 ? 'blog-card ' : 'blog-card alt'} ">
-   <div class="meta">
-     <div class="photo" style="background-image: url(${item.image}); background-size: contain;"></div>
-     <ul class="details">
-       
-       <li class="date">${item.fall} </li>
-       
-     </ul>
-   </div>
-   <div style="min-height: 169px;" class="description">
-     <h1 >${item.title} </h1>
-     <h2>${item.fall} </h2>
-     <p>${item.desc.length > 200 ? item.desc.substring(0, 200)+'...' : item.desc} </p>
-     
-   </div>
- </div>`
-}).join('')
+let readMore = false
 
+function handleReadMore(item) {
+    // console.log('item', JSON.parse(decodeURIComponent(item)))
+    readMore = !readMore
+    renderHtml(readMore)
+}
+
+
+
+function renderHtml(readMore) {
+    const showInnerHtml = jsonData.map((item, index) => {
+        return `<div style="margin-bottom:30px;" class="${index % 2 === 0 ? 'blog-card ' : 'blog-card alt'} ">
+        <div class="meta">
+          <div class="photo" style="background-image: url(${item.image}); background-size: contain;"></div>
+          <ul class="details">
+            <li class="date">${item.fall} </li>
+          </ul>
+        </div>
+        <div style="min-height: 169px;" class="description">
+          <h1 >${item.title} </h1>
+          <h2>${item.fall} </h2>
+          <p>${readMore ? item.desc : item.desc.length > 200 ? item.desc.substring(0, 200) + '...': item.desc} </p>
+          <p class="read-more">
+          <a onClick=\"handleReadMore()">${readMore ? 'Read Less' : 'Read More'} </a>
+        </p>
+        </div>
+      </div>`
+     }).join('')
 myContent.innerHTML = showInnerHtml
+}
+
+
+renderHtml()
+
+{/* <a onClick=\"handleReadMore('${encodeURIComponent(JSON.stringify(item))}')\" >Read More</a> */}
 
 // var output = document.getElementById('outpu');
 // output.innerHTML = jsonData[0].title
