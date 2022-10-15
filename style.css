@@ -248,10 +248,10 @@ html{
   overflow: hidden;
   z-index: 0;
 }
-.blog-card a {
+.blog-card span {
   color: inherit;
 }
-.blog-card a:hover {
+.blog-card span:hover {
   color: #5ad67d;
 }
 .blog-card:hover .photo {
@@ -290,7 +290,7 @@ html{
   width: 100%;
   font-size: 0.9rem;
 }
-.blog-card .details a {
+.blog-card .details span {
   text-decoration: dotted underline;
 }
 .blog-card .details ul li {
@@ -326,7 +326,7 @@ html{
 .blog-card .description .read-more {
   text-align: right;
 }
-.blog-card .description .read-more a {
+.blog-card .description .read-more span {
   color: #5ad67d;
   display: inline-block;
   position: relative;

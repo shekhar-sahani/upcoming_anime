@@ -293,7 +293,7 @@ function renderHtml(readMore) {
           <h2>${item.fall} </h2>
           <p>${readMore ? item.desc : item.desc.length > 200 ? item.desc.substring(0, 200) + '...': item.desc} </p>
           <p class="read-more">
-          <a onClick=\"handleReadMore()">${readMore ? 'Read Less' : 'Read More'} </a>
+          <span  onClick=\"handleReadMore()">${readMore ? 'Read Less' : 'Read More'} </span>
         </p>
         </div>
       </div>`
